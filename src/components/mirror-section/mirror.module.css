@@ -1,0 +1,174 @@
+.modify {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background: #F4F5F8;
+}
+
+.modifyPart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+}
+
+.processing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 70vh;
+}
+
+.processingName {
+  color: black;
+  margin-bottom: 40px;
+}
+
+.loaderPart {
+  position: relative;
+  width: 210px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+}
+
+.designLoader {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 27%;
+  height: 19%;
+  background-image:
+    linear-gradient(45deg, #808080 50%, transparent 50%),
+    linear-gradient(-135deg, #F4F5F8 50%, transparent 50%);
+}
+
+.imagePart {
+  display: none;
+}
+
+.imageButtonPart {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.imageButtonPart>button {
+  border: none;
+  background: none;
+}
+
+.toolsMenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.settingsPart {
+  width: 27%;
+  height: 81.5vh;
+  background-color: white;
+  padding: 15px 40px 40px;
+  color: black;
+}
+
+.flipDirection {
+  margin-bottom: 8px;
+}
+
+.flipHorizontal {
+  margin-right: 12px;
+}
+
+.flipHorizontal,
+.flipVertical {
+  width: 12vw;
+  height: 13vh;
+  border: none;
+  color: #4C4C4C;
+  border-radius: 8px;
+  padding: 0;
+  border: 2px solid #E3E3E3;
+  background-color: white;
+}
+
+.flipHorizontal:hover,
+.flipVertical:hover {
+  background: #FAEAFA;
+  border: 2px solid #C209C1;
+}
+
+.imageTools {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.shareImage,
+.downloadImage {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 16px;
+  line-height: 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+}
+
+.buttonInfo {
+  margin-left: 12px;
+}
+
+.shareImage {
+  padding: 12px 24px;
+  color: #C209C1;
+  border: 1px solid #C209C1;
+  background-color: white;
+}
+
+.downloadImage {
+  padding: 12px 40px;
+  margin-left: 12px;
+  background-color: #C209C1;
+}
+
+.downloadPart {
+  display: flex;
+  flex-direction: row;
+  width: 7vw;
+}
+
+.imageSuccess {
+  position: relative;
+}
+
+.msgPart {
+  display: flex;
+  justify-content: center;
+}
+
+.alertMessage {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: absolute;
+  padding: 10px 14px;
+  gap: 8px;
+  top: 15px;
+  z-index: 1;
+  width: 90%;
+  border-radius: 12px;
+  border: none;
+  background-color: #158380;
+}
+
+.alertMessage * {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: white;
+}
