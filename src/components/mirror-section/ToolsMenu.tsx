@@ -7,9 +7,10 @@ import styles from './mirror.module.css'
 import Image from "next/image";
 import SharePopUp from "../popUps/share-popup";
 
-export default function ToolsMenu({ data, onFlip }: toolsTypes) {
+export default function ToolsMenu({ data, onFlip, imgRef }: toolsTypes) {
   const [image, setImage] = useState<string>('');
   const [sharePopUp, setSharePopUp] = useState<boolean>(false);
+
   useEffect(() => {
     const imgName: string | null = localStorage.getItem('image')
     if (imgName !== null) {
@@ -21,18 +22,27 @@ export default function ToolsMenu({ data, onFlip }: toolsTypes) {
     e.preventDefault()
     setSharePopUp(!sharePopUp)
   }
-  const downloadImg = () => {
-    onFlip({
-      ...data,
-      count: 1
+
+  const downloadHandler = (e: any) => {
+    fetch(data.imgPath, {
+      method: "GET",
+      headers: {}
     })
-    if (data.url && data.count > 0) {
-      const link = document.createElement('a');
-      const ext = image?.split(';')[0].split('/')[1];
-      link.download = `Mirrored.${ext}`;
-      link.href = data.url;
-      link.click()
-    }
+      .then(response => {
+        console.log(response)
+        response.arrayBuffer().then(function (buffer) {
+          const ext = image?.split(';')[0].split('/')[1];
+          const url = window.URL.createObjectURL(new Blob([buffer]));
+          const link = document.createElement("a");
+          link.href = url;
+          link.setAttribute("download", `image.${ext}`); //or any other extension
+          document.body.appendChild(link);
+          link.click();
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   return (
@@ -43,7 +53,7 @@ export default function ToolsMenu({ data, onFlip }: toolsTypes) {
         </div>
         <div className={styles.tools}>
           <p className={styles.flipDirection}>Flip direction</p>
-          <ImageMirror data={data} onFlip={onFlip} />
+          <ImageMirror data={data} onFlip={onFlip} imgRef={imgRef.current} />
         </div>
       </div>
       <div className={styles.imageTools}>
@@ -53,17 +63,15 @@ export default function ToolsMenu({ data, onFlip }: toolsTypes) {
             Share image
           </span>
         </button>
-        <button className={styles.downloadImage} onClick={downloadImg}>
-          <div className={styles.downloadPart}>
-            <Image src={downloadPart} alt='Download Logo' width={18} height={18} />
-            <span className={styles.buttonInfo}>
-              Download
-            </span>
-          </div>
+        <button className={styles.downloadImage} onClick={downloadHandler}>
+          <Image src={downloadPart} alt='Download Logo' width={18} height={18} />
+          <span className={styles.buttonInfo}>
+            Download
+          </span>
         </button>
       </div>
       {sharePopUp
-        ? <SharePopUp setSharePopUp={setSharePopUp} />
+        ? <SharePopUp data={data} setSharePopUp={setSharePopUp} />
         : ''
       }
     </div>

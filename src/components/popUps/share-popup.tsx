@@ -8,7 +8,7 @@ import QRCode from "react-qr-code";
 import { FacebookIcon, FacebookShareButton, LinkedinIcon, LinkedinShareButton, MailruIcon, MailruShareButton, TwitterIcon, TwitterShareButton } from "next-share";
 import { shareType } from "../../types/shareType";
 
-export default function SharePopUp({ setSharePopUp }: shareType) {
+export default function SharePopUp({ data, setSharePopUp }: shareType) {
   const [isCopied, setIsCopied] = useState<boolean>(false);
   const [shareUrl, setShareUrl] = useState<string | null>(null);
   const [image, setImage] = useState<string | null>(null);
@@ -33,7 +33,7 @@ export default function SharePopUp({ setSharePopUp }: shareType) {
     <div className={styles.sharePart}>
       <div className={styles.sharePopUp}>
         <div className={styles.shareImagePart}>
-          <Image src={image ? image : ''} alt='image' width={335} height={445} objectFit='contain'/>
+          <Image src={data.imgPath ? data.imgPath : image} alt='image' width={335} height={445} objectFit='contain'/>
         </div>
         <div className={styles.shareTools}>
           <button className={styles.shareClose} onClick={closeShare}>

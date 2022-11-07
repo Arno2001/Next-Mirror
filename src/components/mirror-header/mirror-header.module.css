@@ -3,7 +3,7 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 19px 24px;
-    box-: 2px solid #CCCCCC;
+    box-shadow: 2px solid #CCCCCC;
 }
 .headerPart1 {
     display: flex;

@@ -1,24 +1,13 @@
 import Image from "next/image";
-import { useRouter } from "next/router";
 import React from "react";
 import deleteImg from "../../assets/images/modifyPage/delete.png";
 import styles from "./popup.module.css";
 import { deleteTypes } from "../../types/deleteTypes";
 
-export default function DeletePopUp({ data, onFlip, setDeletePopUp }: deleteTypes) {
-  const router = useRouter();
+export default function DeletePopUp({ setDeletePopUp }: deleteTypes) {
   // Image Delete and readirect default root 
   const deleteImage = () => {
-    onFlip(
-      {
-        ...data,
-        count: 0,
-        flipHorizontal: false,
-        flipVertical: false
-      }
-    );
     localStorage.clear();
-    router.push('/');
   }
 
   const cancleDelete = () => {

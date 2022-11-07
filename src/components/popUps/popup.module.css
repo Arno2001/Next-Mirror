@@ -1,4 +1,5 @@
-.deletePart {
+.deletePart,
+.refreshPart {
   position: absolute;
   left: 0;
   top: 0;
@@ -11,7 +12,8 @@
   z-index: 1;
 }
 
-.deletePopUp {
+.deletePopUp,
+.refreshPopUp {
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -33,7 +35,8 @@
   flex-direction: row;
 }
 
-.deleteName {
+.deleteName,
+.refreshName {
   font-weight: 700;
   font-size: 20px;
   line-height: 28px;
@@ -49,7 +52,8 @@
   margin-top: 8px;
 }
 
-.deleteButtons {
+.deleteButtons,
+.refreshButtons {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -57,7 +61,8 @@
   margin-top: 38px;
 }
 
-.deleteButtons button {
+.deleteButtons button,
+.refreshButtons button {
   padding: 6px 16px;
   font-weight: 700;
   font-size: 14px;
@@ -66,14 +71,16 @@
   border-radius: 16px;
 }
 
-.cancelDelete {
+.cancelDelete,
+.cancelRefresh {
   opacity: 0.6;
   color: #000000;
   background: white;
   border: 2px solid #000000;
 }
 
-.confirmDelete {
+.confirmDelete,
+.confirmRefresh {
   color: white;
   background: #C209C1;
   border: none;
@@ -183,4 +190,47 @@
   font-size: 14px;
   line-height: 20px;
   margin-bottom: 8px;
+}
+
+@media (max-width: 700px) {
+
+  .deletePopUp,
+  .refreshPopUp {
+    width: 85%;
+    padding: 32px 12px;
+    align-items: center;
+  }
+
+  .deleteHeader {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .deleteDescription {
+    align-items: center;
+    padding: 32px 12px;
+    padding: 0;
+  }
+
+  .deleteButtons, .refreshButtons {
+    margin-top: 32px;
+  }
+
+  .sharePopUp {
+    padding: 0;
+  }
+
+  .shareImagePart {
+    display: none;
+  }
+
+  .shareTools {
+    flex-direction: column;
+    padding: 40px 16px 32px;
+  }
+
+  .linkSpan {
+    width: 50vw;
+  }
 }

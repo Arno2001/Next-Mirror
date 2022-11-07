@@ -3,6 +3,7 @@
   flex-direction: row;
   width: 100%;
   background: #F4F5F8;
+  font-family: 'Gilroy';
 }
 
 .modifyPart {
@@ -47,6 +48,12 @@
 
 .imagePart {
   display: none;
+}
+
+.imageMirroring {
+  max-width: 780px;
+  max-height: 520px;
+  object-fit: contain;
 }
 
 .imageButtonPart {
@@ -117,10 +124,7 @@
   border-radius: 8px;
   font-weight: 600;
   border: none;
-}
-
-.buttonInfo {
-  margin-left: 12px;
+  gap: 12px;
 }
 
 .shareImage {
@@ -136,12 +140,6 @@
   background-color: #C209C1;
 }
 
-.downloadPart {
-  display: flex;
-  flex-direction: row;
-  width: 7vw;
-}
-
 .imageSuccess {
   position: relative;
 }
@@ -151,24 +149,70 @@
   justify-content: center;
 }
 
-.alertMessage {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  position: absolute;
-  padding: 10px 14px;
-  gap: 8px;
-  top: 15px;
-  z-index: 1;
-  width: 90%;
-  border-radius: 12px;
-  border: none;
-  background-color: #158380;
-}
+@media (max-width: 700px) {
+  .modify {
+    flex-direction: column;
+  }
 
-.alertMessage * {
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 24px;
-  color: white;
+  .modifyPart {
+    width: 100%;
+    padding: 24px;
+    box-sizing: border-box;
+  }
+
+  .processing {
+    width: 150px;
+    height: initial;
+  }
+
+  .loaderPart {
+    width: 135px;
+    height: 190px;
+  }
+
+  .designLoader {
+    top: 0;
+    right: 0;
+  }
+
+  .imageSuccess {
+    display: flex;
+    justify-content: center;
+  }
+
+  .settingsPart {
+    width: 100%;
+    padding: 16px;
+    height: inherit;
+    box-sizing: border-box;
+  }
+
+  .toolsMenu {
+    height: inherit;
+    align-items: flex-start;
+  }
+
+  .flipHorizontal,
+  .flipVertical {
+    width: 44vw;
+    margin-bottom: 24px;
+  }
+
+  .shareImage,
+  .downloadImage {
+    gap: 8px;
+    padding: 12px 23px;
+    font-weight: 500;
+    justify-content: center;
+  }
+
+  .downloadImage {
+    width: 44vw;
+  }
+
+  .imageMirroring {
+    max-width: 90%;
+    max-height: 520px;
+    object-fit: contain;
+  }
 }

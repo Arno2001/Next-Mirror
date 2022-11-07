@@ -3,5 +3,5 @@ export type dataTypes = {
   count: number;
   flipHorizontal?: boolean;
   flipVertical?: boolean;
-  url: string;
+  imgPath: any;
 }

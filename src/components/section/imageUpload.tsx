@@ -54,6 +54,7 @@ export const ImageUpload: NextPage = () => {
     e.preventDefault();
     e.target.disable = true;
   }
+  
   return (
     <div className={styles.fileUpload}>
       <div className={styles.descriptionIconPart}>
@@ -113,17 +114,6 @@ export const ImageUpload: NextPage = () => {
             
             <button className="btn" onClick={handleOpenPicker}> Select Image From Google Drive <span className="fas fa-chevron-right"></span> </button>
         </div> */}
-      {/* <div className="dragDiv">
-            <h3>Drop your file here</h3>
-            <div onDragOver={dragOver} onDragLeave={dragLeaveHandler} onDrop={dropHandler} className="drag-area">
-                <div className="icon">
-                <i className="fas fa-images"></i>
-                </div>
-
-                <span className="header">Drag & Drop</span>
-                <span className="support">Supports: JPEG, JPG, PNG</span>
-            </div> */}
-      {/* </div> */}
     </div>
   )
 }
